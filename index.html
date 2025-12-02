@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gauri Dhameja Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;900&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        :root {
+            --primary-color: #000;
+            --secondary-color: #fcfcfc; 
+            --accent-color: #e36a8a; 
+            --light-grey: #f5f5f5;
+            --dark-grey: #333;
+            --doodle-color: #e36a8a; 
+        }
+
+        body { 
+            margin: 0; 
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--secondary-color); 
+        }
+
+     
+        h1, h2, h3, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+        }
+
+    
+        nav { 
+            background: var(--primary-color); 
+            padding: 15px 40px; 
+            display:flex; 
+            justify-content:center; 
+            gap: 30px; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        }
+        nav a { 
+            color: var(--secondary-color); 
+            text-decoration:none; 
+            padding: 8px 18px; 
+            border-radius: 4px; 
+            border: none; 
+            font-size: 14px; 
+            font-weight: 700;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        nav a:hover { 
+            background: var(--accent-color); 
+            color: var(--primary-color);
+        }
+        nav a[href="#"] {
+            color: var(--accent-color);
+        }
+
+
+ 
+        .hero { 
+            background: var(--primary-color); 
+            color: var(--secondary-color); 
+            padding: 120px 60px; 
+            padding-bottom: 160px; 
+            text-align: center; 
+          
+            position: relative;
+        }
+        .hero::before { 
+         
+            content: none; 
+        }
+        .hero h1, .hero h2 {
+            position: relative;
+            z-index: 1;
+        }
+        .hero h1 { 
+            font-size: 6rem; 
+            font-weight: 900; 
+            margin: 0; 
+            letter-spacing: 5px;
+            text-align: left; 
+            padding-left: 60px;
+        }
+        .hero h2 { 
+            font-size: 1.2rem; 
+            letter-spacing: 6px; 
+            margin-bottom: 20px; 
+            font-weight: 400; 
+            text-align: left; 
+            padding-left: 60px;
+        }
+
+   
+        .arrow { 
+            position: absolute; 
+            right: 40px; 
+            bottom: 40px; 
+            transform: rotate(45deg); 
+            width: 30px; 
+            height: 30px; 
+            border-right: 2px solid var(--accent-color); 
+            border-bottom: 2px solid var(--accent-color); 
+            animation: bounce 1.5s infinite; 
+            z-index: 1;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: rotate(45deg) translateY(0); }
+            40% { transform: rotate(45deg) translateY(-10px); }
+            60% { transform: rotate(45deg) translateY(-5px); }
+        }
+
+     
+        .about { 
+            background: var(--secondary-color); 
+            padding: 80px 60px 120px 60px; 
+            display: flex; 
+            flex-wrap: wrap; 
+            align-items: flex-start; 
+            position: relative; 
+            overflow: hidden; 
+            color: var(--primary-color);
+        }
+      
+        .about .doodle-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .about .doodle-container .star {
+            position: absolute;
+            font-size: 1.5rem;
+            color: var(--doodle-color);
+            opacity: 0.6;
+            transform: rotate(var(--rotation, 0deg));
+            animation: twinkle 4s ease-in-out infinite alternate;
+        }
+      
+        .about .doodle-container .star-1 { top: 10%; left: 48%; font-size: 2rem; --rotation: 15deg;}
+        .about .doodle-container .star-2 { top: 20%; left: 55%; font-size: 1.2rem; --rotation: -10deg;}
+        .about .doodle-container .star-3 { top: 70%; right: 10%; font-size: 1.8rem; --rotation: 20deg;}
+        .about .doodle-container .star-4 { top: 80%; right: 20%; font-size: 1rem; --rotation: -5deg;}
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.6; transform: scale(1) rotate(var(--rotation, 0deg)); }
+            50% { opacity: 0.8; transform: scale(1.1) rotate(var(--rotation, 0deg)); }
+        }
+
+
+        .about-num { 
+            font-size: 6rem; 
+            font-weight: 900; 
+            opacity: 0.05; 
+            position: absolute; 
+            top: 20px; 
+            left: 60px; 
+            z-index: 1; 
+            color: var(--primary-color);
+        }
+        .about-left { 
+            width: 50%; 
+            padding-right: 40px;
+            position: relative;
+            z-index: 2; 
+            padding-top: 50px; 
+        }
+        .about-left h3 { 
+            font-size: 3rem; 
+            font-weight: 900; 
+            margin: 0;
+            color: var(--primary-color); 
+            display: inline-block; 
+            position: relative; 
+            padding-left: 20px;
+            letter-spacing: 2px;
+        }
+        .about-left h3::before { 
+            content: '/';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-size: 3rem;
+            top: -5px;
+            font-weight: 900;
+        }
+        .about-text { 
+            margin-top: 20px; 
+            max-width: 500px; 
+            line-height: 1.7; 
+            font-size: 0.95rem; 
+            color: var(--dark-grey);
+        }
+        
+        .about-right {
+            width: 50%;
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: flex-start;
+            padding-top: 50px; 
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about img { 
+            width: 100%; 
+            max-width: 330px; 
+            height: auto; 
+            border-radius: 6px; 
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1); 
+            transition: transform 0.3s;
+            border: 2px solid var(--primary-color); 
+            margin-bottom: 30px; 
+        }
+        .about img:hover {
+             transform: translateY(-5px); 
+        }
+
+       
+        .sub-section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            position: relative;
+            letter-spacing: 1px;
+            align-self: flex-start; 
+        }
+        .about-right .sub-section-title {
+            align-self: center; 
+        }
+
+        .sub-section-title::before { 
+            content: '/';
+            color: var(--accent-color);
+            position: absolute;
+            left: -15px; 
+            font-size: 2.5rem;
+            top: -5px;
+            font-weight: 900;
+        }
+        
+        .about-right .sub-section-title::before {
+            left: 0; 
+        }
+        
+        .sub-section-content {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--dark-grey);
+            max-width: 500px;
+        }
+        .sub-section-content h5 {
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        .sub-section-content p {
+            margin-bottom: 3px;
+            opacity: 0.8;
+        }
+
+       
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin-top: 20px;
+            width: 100%; 
+            padding: 0 40px; 
+        }
+        .about-right .sub-section-title {
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .skill-item span {
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+        .progress-bar-container {
+            width: 100%;
+            background-color: #eee;
+            border-radius: 5px;
+            height: 8px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            height: 100%;
+            background-color: var(--accent-color);
+            border-radius: 5px;
+        }
+
+        .about .section-number-02 {
+            position: absolute;
+            bottom: 20px;
+            right: 60px; 
+            font-size: 6rem;
+            font-weight: 900;
+            opacity: 0.05;
+            color: var(--primary-color);
+            z-index: 1;
+        }
+
+
+    
+        #projects {
+            background: var(--light-grey); 
+            padding: 80px 60px; 
+            color: var(--primary-color);
+        }
+        #projects h3 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+        }
+        #projects h3 span { 
+            color: var(--accent-color);
+        }
+        #projects .row {
+            margin-top: 0 !important;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start; 
+        }
+        .project-img {
+            aspect-ratio: 1/1; 
+            object-fit: cover;
+            transition: transform 0.3s, opacity 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%; 
+            display: block; 
+        }
+        .project-img:hover {
+            opacity: 0.8;
+            transform: scale(1.02);
+        }
+        #projects .col-6, #projects .col-md-3 {
+            padding: var(--bs-gutter-x, 0.75rem); 
+            flex-shrink: 0;
+            max-width: 100%; 
+        }
+
+
+        .modal-content {
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .modal-header {
+            border-bottom: 2px solid var(--accent-color);
+        }
+        .modal-title {
+            font-weight: 700;
+        }
+
+
+        #process {
+            background: var(--primary-color); 
+            padding: 90px 60px; 
+            color: var(--secondary-color);
+        }
+        #process h1 {
+            border-bottom: 4px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+        #process .col-lg-6:first-child .mt-3 {
+            font-size: 10rem; 
+            opacity: 0.08;
+            line-height: 1; 
+        }
+        #process img {
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        #process h5 {
+            font-weight: 900;
+            color: var(--accent-color);
+            margin-top: 15px;
+        }
+        #process p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        #illustration {
+            background: var(--light-grey); 
+            padding: 90px 60px; 
+            color: var(--dark-grey); 
+            position: relative; 
+        }
+        #illustration h1, #illustration h3 {
+            color: var(--primary-color);
+        }
+        #illustration h1 span {
+            color: var(--accent-color); 
+        }
+        #illustration p {
+            color: var(--dark-grey);
+        }
+        #illustration .section-number-04 { 
+            position: absolute;
+            top: 30px;
+            right: 60px;
+            font-size: 6rem;
+            font-weight: 900;
+            opacity: 0.05;
+            color: var(--primary-color);
+            z-index: 1;
+        }
+        #illustration .car-image-container {
+            display: flex;
+            justify-content: center; 
+            margin-top: 40px; 
+            background-color: var(--secondary-color); 
+            padding: 20px;
+            border-radius: 8px;
+        }
+        #illustration .car-image-container img {
+            max-width: 800px;
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+          
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+        }
+        
+        #magazine {
+            background: var(--secondary-color);
+            padding: 90px 60px;
+            position: relative; 
+        }
+        #magazine h1 {
+            color: var(--dark-grey); 
+        }
+        #magazine h1 .text-accent {
+            color: var(--accent-color) !important; 
+        }
+        #magazine p {
+            color: var(--dark-grey);
+            font-size: 1rem;
+        }
+        #magazine img {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        #magazine .section-number-05 {
+            position: absolute;
+            top: 30px;
+            left: 60px;
+            font-size: 6rem;
+            font-weight: 900;
+            color: var(--accent-color);
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+      
+        #end {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 120px 40px;
+            text-align: center; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+        }
+        #end h1 {
+            font-size: 5.5rem; 
+            font-weight: 900; 
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+        }
+        #end > div:nth-child(2) { 
+            border-bottom: 2px solid var(--accent-color); 
+            width: 60%; 
+            margin: 0 auto 80px auto; 
+        }
+        #end .contact-info { 
+            display:flex; 
+            justify-content:center; 
+            gap:30px; 
+            flex-wrap:wrap; 
+            font-size:1rem;
+        }
+        #end .contact-info div {
+            padding: 10px 20px;
+            background: var(--dark-grey);
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            display: flex; 
+            align-items: center;
+            gap: 10px;
+        }
+        #end .contact-info div:hover {
+            background: var(--accent-color);
+            color: var(--primary-color);
+        }
+        #end .contact-info div:hover span {
+             color: var(--primary-color) !important;
+        }
+        #end a {
+            color: var(--secondary-color) !important;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        #end .contact-info div:hover a {
+            color: var(--primary-color) !important;
+        }
+
+       
+        @media (max-width: 992px) {
+            .hero { padding: 80px 30px; padding-bottom: 120px; }
+            .hero h1, .hero h2 { padding-left: 30px; }
+            .hero h1 { font-size: 4rem; }
+            .hero h2 { font-size: 1rem; }
+            .arrow { right: 30px; bottom: 30px; }
+
+            .about { flex-direction: column; text-align: center; padding: 60px 30px 100px 30px; }
+            .about-left { width: 100%; padding-right: 0; margin-bottom: 40px; padding-top: 30px; }
+            .about-left h3 { float: none; display: block; padding-left: 0; }
+            .about-left h3::before { left: 50%; transform: translateX(-50%); top: -35px; } 
+            .about-text { max-width: 100%; margin-left: auto; margin-right: auto; }
+            .about-num { display: none; }
+            
+            .about-right { width: 100%; padding-top: 0; }
+            .about-right img { max-width: 300px; }
+            .about-right .sub-section-title { align-self: center; }
+            .skills-grid { max-width: 100%; padding: 0 15px; } 
+
+            .about .section-number-02 { right: 30px; bottom: 10px; font-size: 4rem; }
+            
+            .sub-section-title { font-size: 2rem; margin-top: 40px; text-align: center; }
+            .sub-section-title::before { left: 50%; transform: translateX(-50%); top: -30px; }
+            .sub-section-content { text-align: center; max-width: 100%; margin-left: auto; margin-right: auto;}
+
+            #projects h3 { text-align: center; }
+            #process { text-align: center; padding: 60px 30px;}
+            #process h1 { display: block; border-bottom: none; }
+            #process .col-lg-6:first-child .mt-3 { font-size: 6rem; }
+            #illustration { padding: 60px 30px; }
+            #illustration .col-lg-6 { text-align: center; margin-bottom: 30px; }
+            #illustration p { float: none; margin-left: auto; margin-right: auto; max-width: 100%; }
+            #magazine { padding: 60px 30px; }
+            #magazine .col-12 { text-align: center; }
+            #magazine h1 { text-align: center; }
+            #magazine p { float: none; margin-left: auto; margin-right: auto; max-width: 100%; }
+            #end { padding: 80px 20px; }
+            #end h1 { font-size: 3rem; letter-spacing: 4px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#">HOME</a>
+        <a href="#about">ABOUT ME</a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#process">WORK</a>
+        <a href="#illustration">ILLUSTRATION</a>
+        <a href="#magazine">MAGAZINE</a>
+        <a href="#end">CONTACT</a>
+    </nav>
+
+
+    <section class="hero">
+        <h2>GAURI DHAMEJA</h2>
+        <h1>PORTFOLIO</h1>
+        <div class="arrow"></div>
+    </section>
+
+    <section class="about" id="about">
+        
+        <div class="doodle-container">
+            <span class="star star-1">&#9733;</span>
+            <span class="star star-2">&#9733;</span>
+            <span class="star star-3">&#9733;</span>
+            <span class="star star-4">&#9733;</span>
+        </div>
+
+        <div class="about-num">01</div>
+        
+        <div class="about-left">
+            <h3>ABOUT ME</h3>
+            <p class="about-text">
+                Myself Gauri Dhameja. At the start, much of my early knowledge of art and design came from countless hours of watching Art Attack and Disney movies. My passion for design continues to grow since childhood. Moreover, I like to do swimming, listening to songs, exploring new places. Also, I am that friend who’d share the last slice of pizza with you. I am looking forward to carrying on my design interests to a next level :)
+            </p>
+
+            <h3 class="sub-section-title">EDUCATION</h3>
+            <div class="sub-section-content">
+                <h5>Class Of 2028</h5>
+                <p>atlas skill tech University</p>
+                <p>bachelor in communication design</p>
+                
+                <h5 class="mt-4">high school: 2021-2023</h5>
+                <p>chandibai himathmal mansukhani college</p>
+                <p>background commerce</p>
+            </div>
+
+            <h3 class="sub-section-title">LEARNINGS:</h3>
+            <div class="sub-section-content">
+                <p>Figma software</p>
+                <p>Corel draw Adobe</p>
+                <p>Illustrator</p>
+                <p>Adobe Photoshop</p>
+                <p>Photography</p>
+            </div>
+        </div>
+
+        <div class="about-right">
+            <img src="img1.png" alt="Gauri Photo" />
+
+            <h3 class="sub-section-title">SKILLS</h3>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <span>graphic skills</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>photography</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 75%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>meeting deadlines</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>Creativity</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 95%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>Composition</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 80%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-number-02">02</div>
+    </section>
+    
+    <section id="projects">
+        <h3 class="text-start">
+            <span style="color:var(--accent-color);">/</span> PROJECTS
+        </h3>
+
+        <div class="row g-4">
+            <div class="col-6 col-md-3"><img src="img3.png" class="project-img" data-bs-toggle="modal" data-bs-target="#proj1"></div>
+            <div class="col-6 col-md-3"><img src="img7.png" class="project-img" data-bs-toggle="modal" data-bs-target="#proj2"></div>
+            <div class="col-6 col-md-3"><img src="img5.png" class="project-img" data-bs-toggle="modal" data-bs-target="#proj3"></div>
+            <div class="col-6 col-md-3"><img src="img8.png" class="project-img" data-bs-toggle="modal" data-bs-target="#proj4"></div>
+
+            <div class="col-6 col-md-3"><img src="img9.png" class="project-img" data-bs-toggle="modal" data-bs-target="#proj5"></div>
+            <div class="col-6 col-md-3"><img src="img10.png" class="project-img" data-bs-toggle="modal" data-bs-target="#proj6"></div>
+            <div class="col-6 col-md-3"><img src="img6.png" class="project-img" data-bs-toggle="modal" data-bs-target="#proj7"></div>
+            <div class="col-6 col-md-3"><img src="img png2.png" class="project-img" data-bs-toggle="modal" data-bs-target="#proj8"></div>
+        </div>
+    </section>
+
+
+    <div class="modal fade" id="proj1"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Magazine Cover Design</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="img3.png" style="width:100%; border-radius:6px;"><p class="mt-3">A stylish editorial magazine cover showing bold typography & elegance.</p></div></div></div></div>
+    <div class="modal fade" id="proj2"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Minimal Poster</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="img7.png" style="width:100%; border-radius:6px;"><p class="mt-3">Poster created using minimal layout and simple shapes.</p></div></div></div></div>
+    <div class="modal fade" id="proj3"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">catalogue design</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="img5.png" style="width:100%; border-radius:6px;"><p class="mt-3">Creative catalogue design for a fashion brand.</p></div></div></div></div>
+    <div class="modal fade" id="proj4"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">photography layout</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="img8.png" style="width:100%; border-radius:6px;"><p class="mt-3">Creative street photography exploration.</p></div></div></div></div>
+    <div class="modal fade" id="proj5"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">card design</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="img9.png" style="width:100%; border-radius:6px;"><p class="mt-3">game card and packaging design.</p></div></div></div></div>
+    <div class="modal fade" id="proj6"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">poster design</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="img10.png" style="width:100%; border-radius:6px;"><p class="mt-3">Visual identity poster for a campaign.</p></div></div></div></div>
+    <div class="modal fade" id="proj7"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">UI Illustration</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="img6.png" style="width:100%; border-radius:6px;"><p class="mt-3">Character-based UI element concept.</p></div></div></div></div>
+    <div class="modal fade" id="proj8"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">AUTOMOTIVE
+ILLUSTRATION</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="img png2.png" style="width:100%; border-radius:6px;"><p class="mt-3">A digitally illustrated side-profile artwork of a Porsche 911.</p></div></div></div></div>
+
+
+    <section id="process">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1>
+                        <span style="color:var(--accent-color);">WORK</span>
+                    </h1>
+                    <div class="mt-3">
+                        03 </div>
+                </div>
+                <div class="col-lg-6 d-flex justify-content-end gap-3 flex-wrap">
+                    <img src="img11.png" style="max-width:100%; width:1380px; border-radius:6px;">
+                </div>
+            </div>
+            
+            <div class="row text-center mt-5 g-4">
+                <div class="col-md-3">
+                    <h5>DISCOVERY</h5>
+                    <p>Understand the brand, goals, and audience</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>RESEARCH</h5>
+                    <p>Market trends and visual benchmarking</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>IDEATION</h5>
+                    <p>Brainstorming concepts and directions</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>DESIGN</h5>
+                    <p>Designing a magazine page</p>
+                </div>
+                <div class="col-md-4 mt-4">
+                    <h5>FEEDBACK</h5>
+                    <p>Refining based on collaboration</p>
+                </div>
+                <div class="col-md-4 mt-4">
+                    <h5>DELIVERY</h5>
+                    <p>Final theme + documentation</p>
+                </div>
+                <div class="col-md-4 mt-4">
+                    <h1 style="font-size:3rem; font-weight:900; border-bottom: none;">PROCESS</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="illustration" class="position-relative">
+        <div class="container-fluid">
+            <div class="section-number-04">
+                04
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1>
+                        AUTOMOTIVE <br>
+                        <span>ILLUSTRATION</span>
+                    </h1>
+                </div>
+
+                <div class="col-lg-6 text-end">
+                    <p style="text-align:right; font-size:0.8rem; letter-spacing:2px; font-weight:600; opacity:0.7;">
+                        PERFORMANCE SERIES
+                    </p>
+                    <h3>
+                        PORSCHE 911 GT3
+                    </h3>
+                    <p style="float:right; max-width:420px; font-size:0.9rem; line-height:1.5; opacity:0.9;">
+                        A digitally illustrated side-profile artwork of a Porsche sports car, created with a
+                        focus on precision, clean linework, and balanced shading. The design highlights
+                        form, aerodynamics, and modern automotive aesthetics while maintaining a minimalist
+                        composition. Styled typography complements the illustration and completes a refined,
+                        poster-like visual piece.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-12 car-image-container">
+                    <img src="img12.png" alt="Porsche 911 GT3 Illustration">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="magazine" class="position-relative">
+        <div class="container-fluid">
+            <div class="section-number-05">
+                05
+            </div>
+
+            <div class="row d-flex align-items-center">
+                <div class="col-12">
+                    <h1 style="color:var(--dark-grey); text-align:right;">
+                        MAGAZINE<br>
+                        REDESIGN-<br>
+                        <span class="text-accent" style="font-weight:400; letter-spacing:1px;">FASHION<br>EDITORIAL</span>
+                    </h1>
+                    <p style="float:right; font-size:0.95rem; line-height:1.6; margin-top:30px; max-width:650px;">
+                        A modern redesign of a fashion magazine spread featuring clean layouts, soft pastel tones, 
+                        and bold typography. The project focuses on creating a high-end editorial feel through 
+                        balanced imagery, elegant serif fonts, and a clear visual hierarchy. The result is a polished, 
+                        trend-driven spread that highlights brand identity and elevates 
+                        the overall reading experience.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-12">
+                    <img src="img13.png" style="width:100%; border-radius:4px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="end">
+        <h1 style="color:var(--accent-color);">
+            THE END
+        </h1>
+
+        <div style="width:60%;">
+        </div>
+
+        <div class="contact-info">
+
+            <div>
+                <span style="color:var(--accent-color); font-size:1.3rem;">
+                    &#9993;
+                </span>
+                <span>dhamejagauri188@gmail.com</span>
+            </div>
+
+            <div>
+                <span style="color:var(--accent-color); font-size:1.3rem;">
+                    &#128222;
+                </span>
+                <span>9491341000</span>
+            </div>
+
+            <div>
+                <span style="color:var(--accent-color); font-size:1.3rem;">
+                    &#128279;
+                </span>
+                <a href="https://www.linkedin.com/in/gauri-dhameja-b18930297/" target="_blank">
+                    linkedin
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.project-card img {
+  transition: 0.4s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(227, 106, 138, 0.55); /* Transparent pink */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.4s ease;
+  border-radius: 6px;
+}
+/* In the <style> block */
+.hero { 
+    background: var(--primary-color); /* This is currently #000 (black) */
+    /* ... other properties ... */
+}
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-overlay h4 {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  #process h1 {
+    font-size: 2.8rem !important;
+  }
+  #process img {
+    width: 100% !important;
+  }
+}
+@media (max-width:768px){
+  #magazine h1 { text-align:left !important; font-size:2.2rem !important; }
+  #magazine img { margin-top:10px !important; }
+}
